@@ -6,9 +6,9 @@ export async function getUsers(email) {
 };
 
 export async function insertSignUp(user) {
-    const { name, email, hash } = user;
+    const { name, email, phone, picture, hash } = user;
 
-    await db.query(`INSERT INTO users (name, email, password) VALUES ($1, $2, $3);`,[name, email, hash]);
+    await db.query(`INSERT INTO users (name, email, phone, picture, password) VALUES ($1, $2, $3, $4, $5);`,[name, email, phone, picture, hash]);
 };
 
 export async function insertSignIn(user) {

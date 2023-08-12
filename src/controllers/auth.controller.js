@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 import { getUsers, insertSignUp, insertSignIn } from "../repositories/auth.repository.js";
 
 export async function signUp(req, res) {
-    const { name, email, password, confirmPassword } = req.body;
+    const { name, email, phone, picture, password, confirmPassword } = req.body;
 
     if(password !== confirmPassword) return res.status(422).send("As senhas digitadas não são iguais!");
 
@@ -14,7 +14,7 @@ export async function signUp(req, res) {
 
         const hash = bcrypt.hashSync(password, 10);
 
-        const userToInsert = {name, email, hash};
+        const userToInsert = {name, email, phone, picture, hash};
         insertSignUp(userToInsert);
         res.sendStatus(201);
     } catch (err) {

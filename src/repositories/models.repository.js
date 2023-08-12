@@ -1,4 +1,4 @@
-import { db } from "../database/database.connection";
+import { db } from "../database/database.connection.js";
 
 export async function listModels() {
     const models = await db.query(`SELECT * FROM models;`);
