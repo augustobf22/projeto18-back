@@ -7,6 +7,6 @@ const modelsRouter = Router();
 
 modelsRouter.get("/home", getModels);
 modelsRouter.get("/model/:id", getModelDetails);
-modelsRouter.post("/model/:id", validateSchema(schemaModel), postModel);
+modelsRouter.post("/model", validateSchema(schemaModel), postModel);
 
 export default modelsRouter;
