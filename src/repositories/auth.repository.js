@@ -1,7 +1,7 @@
 import { db } from "../database/database.connection.js"
 
 export async function getUsers(email) {
-    const users = db.query(`SELECT count(*) FROM users WHERE email = $1`, [email]);
+    const users = db.query(`SELECT * FROM users WHERE email = $1`, [email]);
     return users;
 };
 
