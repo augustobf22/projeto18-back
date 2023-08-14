@@ -2,6 +2,7 @@ import { db } from "../database/database.connection.js";
 
 export async function listModels() {
     const models = await db.query(`SELECT 
+                                    m.id,
                                     md.name, 
                                     md.picture, 
                                     md.species, 
