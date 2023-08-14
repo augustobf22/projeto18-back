@@ -7,5 +7,5 @@ export const schemaModel = Joi.object({
     race: Joi.string().required(),
     age: Joi.number().required(),
     description: Joi.string(), 
-    pricePerDay: Joi.number().required()
+    pricePerHour: Joi.number().required()
 })
