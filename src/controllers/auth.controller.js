@@ -37,7 +37,7 @@ export async function signIn(req, res) {
             const userToInsert = { id: user.id, token };
             insertSignIn(userToInsert);
 
-            return res.status(200).send({ "token": token });
+            return res.status(200).send({ "token": token, "userId": user.id });
         } else {
             return res.status(401).send("Senha incorreta!");
         }
