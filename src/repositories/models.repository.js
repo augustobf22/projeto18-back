@@ -24,15 +24,19 @@ export async function listModels() {
 
 export async function getDetails(id) {
     const modelDetails = await db.query(`SELECT 
+                                        m.id,
                                         md.name, 
                                         md.picture, 
                                         md.species, 
                                         md.race, 
                                         md.age, 
                                         md.description, 
-                                        md."pricePerHour" 
+                                        md."pricePerHour",
+                                        u.phone,
+                                        u.email
                                     FROM models m 
                                         JOIN "modelDetails" md ON m."detailsId" = md.id
+                                        JOIN users u ON m."createdBy" = u.id
                                     WHERE m.id=$1;`,[id]);
 
     return modelDetails;
