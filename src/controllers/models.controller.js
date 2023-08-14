@@ -1,4 +1,3 @@
-import { db } from "../database/database.connection.js";
 import { listModels, getDetails, authUser, insertDetails, insertModel } from "../repositories/models.repository.js";
 
 export async function getModels(req, res) {
