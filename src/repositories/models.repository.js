@@ -9,9 +9,12 @@ export async function listModels() {
                                     md.race, 
                                     md.age, 
                                     md.description, 
-                                    md."pricePerHour" 
+                                    md."pricePerHour",
+                                    u.phone,
+                                    u.email
                                 FROM models m 
                                     JOIN "modelDetails" md ON m."detailsId" = md.id
+                                    JOIN users u ON m."createdBy" = u.id
                                 WHERE m."isActive" = true
                                 ORDER BY m."createdAt" DESC
                                 LIMIT 10;`);
