@@ -9,7 +9,8 @@ export async function getUserModels(userId) {
                                     md.race, 
                                     md.age, 
                                     md.description, 
-                                    md."pricePerHour" 
+                                    md."pricePerHour",
+                                    m."isActive"
                                 FROM models m 
                                     JOIN "modelDetails" md ON m."detailsId" = md.id
                                 WHERE m."createdBy" = $1
